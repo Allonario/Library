@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('./partials/head');%>
+</head>
+<body>
+    <h1>Book Library</h1>
+    <div id = 'main_container'>
+        <p><input type="checkbox" id = 'available_sort_button'>Отобразить только книги в наличии</p>
+        <p><input type="checkbox" id = 'overdue_sort_button'>Отобразить книги с просроченным возвратом</p>
+        <button id = 'new_book_button'>Создать новую запись</button>
+        <div id = 'book_list_container'></div>
+    </div>
+    <script src = './js/request.js'></script>
+    <script src = './js/main.js'></script>
+</body>
+</html>

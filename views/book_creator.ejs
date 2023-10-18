@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('./partials/head');%>
+</head>
+<body>
+    <h1>Add New Book</h1>
+    <div id = 'main_container'>
+        <p id = 'id_panel'></p>
+        <div id = 'release_date_container'>
+            <p id = 'release_date_p'>Выберите дату выпуска книги:</p>
+            <input type = 'date' id = 'release_date_input'>
+        </div>
+        <div id = 'book_title_input_container'>
+            <p id = 'book_title_input_p'>Введите название книги:</p>
+            <input id = 'book_title_input'>
+        </div>
+        <div id = 'author_input_container'>
+            <p id = 'author_input_p'>Введите имя автора книги:</p>
+            <input id = 'author_input'>
+        </div>
+        <div id = 'availability_input_container'>
+            <p id = 'availability_input_p'>В наличии:</p>
+            <input type = 'checkbox' id = 'availability_input' checked>
+        </div>
+        <div id = 'reader_input_container'>
+            <p id = 'reader_input_p'>Введите имя читателя:</p>
+            <input id = 'reader_input' placeholder ='Книга находится в библиотеке' disabled>
+        </div>
+        <div id = 'return_date_container'>
+            <p id = 'return_date_p'>Выберите дату возврата книги:</p>
+            <input type = 'date' id = 'return_date_input'disabled>
+        </div>
+        <div id = 'button_panel'>
+            <button id ='apply'>Подтвердить</button>
+            <button id ='cancel'>Вернуться назад</button>
+        </div>
+    </div>
+    <script src = './js/request.js'></script>
+    <script src = './js/bookCreator.js'></script>
+</body>
+</html>

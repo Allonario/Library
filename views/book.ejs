@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('./partials/head');%>
+</head>
+<body>
+    <h1 id = 'book_title'><%= title%></h1>
+    <button id = 'change_title_button' class = 'change_button'>Изменить название</button>
+    <dialog id = 'change_title_dialog' class = 'dialog'>
+        <input id = 'bookName' class = 'change_input'>
+        <button id = 'bookName_button' class = 'confirm_button'>Подтвердить</button>
+        <button class = 'cancel_button'>Отменить</button>
+    </dialog>
+    <div id = 'main_container'>
+        <div id = 'author_container'>
+            <p>Автор:</p>
+            <p id = 'author_name'><%= authorName%></p>
+            <button id = 'change_author_name_button' class = 'change_button'>Изменить имя автора</button>
+            <dialog id = 'change_author_name_dialog' class = 'dialog'>
+                <input id = 'authorName' class = 'change_input'>
+                <button id = 'authorName_button' class = 'confirm_button'>Подтвердить</button>
+                <button class = 'cancel_button'>Отменить</button>
+            </dialog>
+        </div>
+        <div id = 'release_date_container'>
+            <p>Дата выпуска:</p>
+            <p id = 'release_date'><%= creationDate%></p>
+            <button id = 'change_release_date_button' class = 'change_button'>Изменить дату выхода</button>
+            <dialog id = 'change_release_date_dialog' class = 'dialog'>
+                <input  type = 'date' id = 'creationDate' class = 'change_input'>
+                <button id = 'creationDate_button' class = 'confirm_button'>Подтвердить</button>
+                <button class = 'cancel_button'>Отменить</button>
+            </dialog>
+        </div>
+        <div id = 'availability_container'>
+            <p>Наличие:</p>
+            <% if(available === 'true') { %>
+                <p id = 'availability'>Доступно</p>
+                <button id = 'issue_book_button'>Выдать книгу</button>
+                <dialog id = 'issue_book_dialog' class = 'dialog'>
+                    <p>Имя читателя:</p>
+                    <input id = 'reader_name'>
+                    <p>Дата возврата:</p>
+                    <input type = 'date' id = 'return_date'>
+                    <button id="confirm_book_issuance_button">Выдать</button>
+                    <button id="close_book_issuance_button" class=".cancel_button">Закрыть</button>
+                </dialog>
+            <% } else { %>
+                <p id = 'availability'>Недоступно</p>
+                <dialog id = 'reader_information' class = 'dialog'>
+                    <p>Имя читателя:</p>
+                    <p><%= reader%></p>
+                    <p>Дата возврата:</p>
+                    <p><%= returnDate%></p>
+                    <button id="close_reader_information_button" class=".cancel_button">Закрыть</button>
+                </dialog>
+                <button id = "reader_information_button">Информация о читателе</button>
+                <button id = "return_book_button">Вернуть книгу</button>
+            <% } %>
+        </div>
+        <button id = 'main_page'>Вернуться на главную</button>
+    </div>
+    <script src = '../js/request.js'></script>
+    <script src = '../js/books.js'></script>
+</body>
+</html>

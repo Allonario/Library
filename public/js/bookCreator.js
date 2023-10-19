@@ -1,11 +1,18 @@
 const MAX_BOOKS_COUNT = 10000
 
+document.querySelectorAll('.create_input').forEach(function(input) {
+    input.addEventListener("input", function () {
+        checkInput()
+    })
+})
+
 getBookTable().then(booksList => {
     document.querySelector('#id_panel').innerHTML = `ID: ${getNewId(booksList)}`
     console.log(/ID: (.+)/.exec(document.querySelector('#id_panel').textContent)[1])
 })
 
 document.querySelector('#availability_input').addEventListener('change', event => {
+    checkInput()
     let readerInput = document.querySelector('#reader_input')
     let returnDateInput = document.querySelector('#return_date_input')
     if(event.target.checked){
@@ -38,6 +45,28 @@ document.querySelector('#apply').addEventListener('click', () => {
     }
     request('api/books_list','POST', new_book).then(() => window.location.href = '/')
 })
+
+
+function checkInput(){
+    let allInputsFilled = true
+    let available = document.querySelector('#availability_input').checked
+    console.log(available)
+    let inputsNumber = 1
+
+    document.querySelectorAll('.create_input').forEach(function(input) {
+        if (input.value.trim() === "") {
+            if((!available && (inputsNumber === 4 || inputsNumber === 5)) ||
+                (available && !(inputsNumber === 4 || inputsNumber ===5))) {
+                console.log('no')
+                allInputsFilled = false
+            }
+        }
+        console.log(inputsNumber)
+        console.log(input)
+        inputsNumber += 1
+    });
+    document.querySelector('#apply').disabled = !allInputsFilled
+}
 
 
 function getNewId(booksList){

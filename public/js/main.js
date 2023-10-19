@@ -1,56 +1,26 @@
 tableInit()
 
 document.querySelector('#available_sort_button').addEventListener('change', event => {
-    sortTable(event, 'availability')
+    if(event.target.checked) {
+        document.querySelector('#overdue_sort_button').checked = false
+        tableInit('?filter=available')
+    } else if(!document.querySelector('#overdue_sort_button').checked){
+        tableInit()
+    }
 })
 
 document.querySelector('#overdue_sort_button').addEventListener('change', event => {
-    sortTable(event, 'date')
+    if(event.target.checked) {
+        document.querySelector('#available_sort_button').checked = false
+        tableInit('?filter=overdue')
+    } else if(!document.querySelector('#available_sort_button').checked){
+        tableInit()
+    }
 })
 
 document.querySelector('#new_book_button').addEventListener('click', () =>{
     window.location.href = '/book_creator'
 })
-
-
-function sortTable(event, sortType){
-    const table = document.querySelector('#book_list')
-    let rows = table.getElementsByTagName('tr')
-    if(event.target.checked){
-        while (rows.length >0){
-            table.removeChild(rows[0])
-        }
-        fetch('/api/books_list')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                for(let key in data){
-                    let item = JSON.parse(data[key])
-                    if(sortType === 'date'){
-                        document.querySelector('#available_sort_button').checked = false
-                        if(item['returnDate']){
-                            let dateArray = item['returnDate'].split("-")
-                            if(new Date(parseInt(dateArray[0], 10),
-                                parseInt(dateArray[1], 10) - 1,
-                                parseInt(dateArray[2], 10)) < new Date()) {
-                                addRow(item)
-                                console.log(item)
-                            }
-                        }
-                    } else if(sortType === 'availability'){
-                        document.querySelector('#overdue_sort_button').checked = false
-                        if(item['available']){
-                            addRow(item)
-                        }
-                    }
-
-                }
-                buttonListener()
-            });
-    } else {
-        tableInit()
-    }
-}
 
 
 function buttonListener() {
@@ -70,7 +40,9 @@ function buttonListener() {
 }
 
 
-function tableInit(){getBookTable().then(uploadTable).then(buttonListener)}
+function tableInit(filteringParameter){
+    getBookTable(filteringParameter).then(uploadTable).then(buttonListener)
+}
 
 
 function addRow(dataList){

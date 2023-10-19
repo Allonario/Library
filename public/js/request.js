@@ -19,6 +19,6 @@ async function request(url, method = 'GET', data = null) {
 }
 
 
-async function getBookTable(){
-    return await request('/api/books_list')
+async function getBookTable(filteringParameter){
+    return await request('/api/books_list' + (filteringParameter ? filteringParameter : ''))
 }

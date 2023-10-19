@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { fileURLToPath } from 'url';
+import {fileURLToPath} from 'url';
 import {dirname} from 'path'
 import fs from 'fs'
 
@@ -21,18 +21,17 @@ fs.readFile('library_data.json', 'utf8', (err, data) => {
     }
     LIBRARY_DATA = JSON.parse(data);
     const bookList = LIBRARY_DATA;
-    console.log(bookList);
 });
 
 app.get('/api/books_list', (req, res) => {
-    res.json(LIBRARY_DATA)
+    const filteringParameter = req.query.filter
+    res.json(filteringLibrary(filteringParameter))
 })
 
 app.post('/api/books_list', (req, res) => {
     const newBookData = {...req.body}
     const ID = newBookData['id']
     LIBRARY_DATA[ID] = JSON.stringify(newBookData)
-    console.log(LIBRARY_DATA)
     fs.writeFileSync('library_data.json', JSON.stringify(LIBRARY_DATA, null, 2));
     res.status(201).json(newBookData)
 })
@@ -72,3 +71,31 @@ app.get('/', (req, res) => {
 app.listen(PORT, () =>{
 })
 
+
+function filteringLibrary(filteringParameter) {
+    let filteredLibrary = {}
+    if (filteringParameter === 'overdue') {
+        for (let id in LIBRARY_DATA) {
+            let item = JSON.parse(LIBRARY_DATA[id])
+            if (item['returnDate']) {
+                let dateArray = item['returnDate'].split("-")
+                if (new Date(parseInt(dateArray[0], 10),
+                    parseInt(dateArray[1], 10) - 1,
+                    parseInt(dateArray[2], 10)) < new Date()) {
+                    filteredLibrary[id] = LIBRARY_DATA[id]
+                }
+            }
+        }
+    }
+    else if (filteringParameter === 'available') {
+        for (let id in LIBRARY_DATA) {
+            let item = JSON.parse(LIBRARY_DATA[id])
+            if (item['available']) {
+                filteredLibrary[id] = LIBRARY_DATA[id]
+            }
+        }
+    } else {
+        filteredLibrary = LIBRARY_DATA
+    }
+    return filteredLibrary
+}

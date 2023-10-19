@@ -79,6 +79,24 @@ document.querySelectorAll('.confirm_button').forEach(button => {
     })
 })
 
+document.querySelectorAll(".dialog").forEach(dialog => {
+    dialog.querySelectorAll(".change_input").forEach(input => {
+        input.addEventListener("input", () => {
+            if(dialog.id === 'issue_book_dialog') {
+                if (input.id === 'reader_name' && (dialog.querySelector("#return_date").value.trim() !== '')) {
+                    dialog.querySelector(".confirm_button").disabled = input.value.trim() === ''
+                } else if (input.id === 'return_date' && (dialog.querySelector("#reader_name").value.trim() !== '')) {
+                    dialog.querySelector(".confirm_button").disabled = input.value.trim() === ''
+                } else {
+                    dialog.querySelector(".confirm_button").disabled = true;
+                }
+            } else {
+                dialog.querySelector(".confirm_button").disabled = input.value.trim() === ''
+            }
+        })
+    })
+})
+
 document.querySelector('#main_page').addEventListener('click', () => {
     window.location.href = '/'
 })

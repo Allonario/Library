@@ -1,5 +1,5 @@
 {
-  "1": "{\"id\":1,\"bookName\":\"The Lord of the rings\",\"authorName\":\"Толик\",\"creationDate\":\"29.07.1954\",\"available\":true,\"reader\":null,\"returnDate\":null}",
+  "1": "{\"id\":1,\"bookName\":\"The Lord of the rings\",\"authorName\":\"Толик\",\"creationDate\":\"1956-09-19\",\"available\":true,\"reader\":null,\"returnDate\":null}",
   "2": "{\"id\":2,\"bookName\":\"HarryPotter\",\"authorName\":\"Rowling\",\"creationDate\":\"26.07.1997\",\"available\":true,\"reader\":null,\"returnDate\":null}",
   "3": "{\"id\":3,\"bookName\":\"Hobbit\",\"authorName\":\"Tolkien\",\"creationDate\":\"21.09.1937\",\"available\":true,\"reader\":null,\"returnDate\":null}",
   "4": "{\"id\":4,\"bookName\":\"1984\",\"authorName\":\"Джордж Оруэл\",\"creationDate\":\"2023-10-06\",\"available\":false,\"reader\":\"sadsdasd\",\"returnDate\":\"2023-10-04\"}"

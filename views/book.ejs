@@ -8,7 +8,7 @@
     <button id = 'change_title_button' class = 'change_button'>Изменить название</button>
     <dialog id = 'change_title_dialog' class = 'dialog'>
         <input id = 'bookName' class = 'change_input'>
-        <button id = 'bookName_button' class = 'confirm_button'>Подтвердить</button>
+        <button id = 'bookName_button' class = 'confirm_button' disabled>Подтвердить</button>
         <button class = 'cancel_button'>Отменить</button>
     </dialog>
     <div id = 'main_container'>
@@ -18,7 +18,7 @@
             <button id = 'change_author_name_button' class = 'change_button'>Изменить имя автора</button>
             <dialog id = 'change_author_name_dialog' class = 'dialog'>
                 <input id = 'authorName' class = 'change_input'>
-                <button id = 'authorName_button' class = 'confirm_button'>Подтвердить</button>
+                <button id = 'authorName_button' class = 'confirm_button' disabled>Подтвердить</button>
                 <button class = 'cancel_button'>Отменить</button>
             </dialog>
         </div>
@@ -28,7 +28,7 @@
             <button id = 'change_release_date_button' class = 'change_button'>Изменить дату выхода</button>
             <dialog id = 'change_release_date_dialog' class = 'dialog'>
                 <input  type = 'date' id = 'creationDate' class = 'change_input'>
-                <button id = 'creationDate_button' class = 'confirm_button'>Подтвердить</button>
+                <button id = 'creationDate_button' class = 'confirm_button' disabled>Подтвердить</button>
                 <button class = 'cancel_button'>Отменить</button>
             </dialog>
         </div>
@@ -39,10 +39,10 @@
                 <button id = 'issue_book_button'>Выдать книгу</button>
                 <dialog id = 'issue_book_dialog' class = 'dialog'>
                     <p>Имя читателя:</p>
-                    <input id = 'reader_name'>
+                    <input id = 'reader_name' class = 'change_input'>
                     <p>Дата возврата:</p>
-                    <input type = 'date' id = 'return_date'>
-                    <button id="confirm_book_issuance_button">Выдать</button>
+                    <input type = 'date' id = 'return_date' class = 'change_input'>
+                    <button id="confirm_book_issuance_button" class = 'confirm_button' disabled>Выдать</button>
                     <button id="close_book_issuance_button" class=".cancel_button">Закрыть</button>
                 </dialog>
             <% } else { %>

@@ -43,7 +43,6 @@ app.delete('/api/books_list/:id', (req, res) => {
 })
 
 app.put('/api/books_list/:id', (req, res) => {
-    console.log('post')
     LIBRARY_DATA[req.params.id] = JSON.stringify({...JSON.parse(LIBRARY_DATA[req.params.id]), ...req.body})
     fs.writeFileSync('library_data.json', JSON.stringify(LIBRARY_DATA, null, 2));
     res.status(201).json({message: 'Book was deleted'})

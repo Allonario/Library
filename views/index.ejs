@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
     <%- include('./partials/head');%>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
-    <h1>Book Library</h1>
-    <div id = 'main_container'>
-        <p><input type="checkbox" id = 'available_sort_button'>Отобразить только книги в наличии</p>
-        <p><input type="checkbox" id = 'overdue_sort_button'>Отобразить книги с просроченным возвратом</p>
-        <button id = 'new_book_button'>Создать новую запись</button>
-        <div id = 'book_list_container'></div>
-    </div>
+    <header id='header'>
+        <div id='header_container'>
+            <img src='./img/open-book.png' width="50" height="50">
+            <h1 id="title">Book Library</h1>
+        </div>
+    </header>
+    <main id="main">
+        <div id = 'main_container'>
+            <p><input type="checkbox" id = 'available_sort_button'>Отобразить только книги в наличии</p>
+            <p><input type="checkbox" id = 'overdue_sort_button'>Отобразить книги с просроченным возвратом</p>
+            <button id = 'new_book_button'>Создать новую запись</button>
+            <div id = 'book_list_container'></div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/05c56843eb.js" crossorigin="anonymous"></script>
     <script src = './js/request.js'></script>
-    <script src = './js/main.js'></script>
+    <script src = './js/index.js'></script>
 </body>
 </html>

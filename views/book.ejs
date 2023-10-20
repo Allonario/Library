@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
     <%- include('./partials/head');%>
+    <link rel="stylesheet" type="text/css" href="../css/book.css">
 </head>
 <body>
-    <h1 id = 'book_title'><%= title%></h1>
-    <button id = 'change_title_button' class = 'change_button'>Изменить название</button>
-    <dialog id = 'change_title_dialog' class = 'dialog'>
-        <input id = 'bookName' class = 'change_input'>
-        <button id = 'bookName_button' class = 'confirm_button' disabled>Подтвердить</button>
-        <button class = 'cancel_button'>Отменить</button>
-    </dialog>
+    <header id = 'header'>
+        <h1 id = 'book_title'><%= title%>
+            <button id = 'change_title_button' class = 'change_button'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        </h1>
+
+        <dialog id = 'change_title_dialog' class = 'dialog'>
+            <input id = 'bookName' class = 'change_input'>
+            <button id = 'bookName_button' class = 'confirm_button' disabled>Подтвердить</button>
+            <button class = 'cancel_button'>Отменить</button>
+        </dialog>
+    </header>
     <div id = 'main_container'>
         <div id = 'author_container'>
             <p>Автор:</p>
-            <p id = 'author_name'><%= authorName%></p>
-            <button id = 'change_author_name_button' class = 'change_button'>Изменить имя автора</button>
+            <p id = 'author_name'><%= authorName%>
+                <button id = 'change_author_name_button' class = 'change_button'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            </p>
             <dialog id = 'change_author_name_dialog' class = 'dialog'>
                 <input id = 'authorName' class = 'change_input'>
                 <button id = 'authorName_button' class = 'confirm_button' disabled>Подтвердить</button>
@@ -24,8 +30,9 @@
         </div>
         <div id = 'release_date_container'>
             <p>Дата выпуска:</p>
-            <p id = 'release_date'><%= creationDate%></p>
-            <button id = 'change_release_date_button' class = 'change_button'>Изменить дату выхода</button>
+            <p id = 'release_date'><%= creationDate%>
+                <button id = 'change_release_date_button' class = 'change_button'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            </p>
             <dialog id = 'change_release_date_dialog' class = 'dialog'>
                 <input  type = 'date' id = 'creationDate' class = 'change_input'>
                 <button id = 'creationDate_button' class = 'confirm_button' disabled>Подтвердить</button>
@@ -43,7 +50,7 @@
                     <p>Дата возврата:</p>
                     <input type = 'date' id = 'return_date' class = 'change_input'>
                     <button id="confirm_book_issuance_button" class = 'confirm_button' disabled>Выдать</button>
-                    <button id="close_book_issuance_button" class=".cancel_button">Закрыть</button>
+                    <button id="close_book_issuance_button" class="cancel_button">Закрыть</button>
                 </dialog>
             <% } else { %>
                 <p id = 'availability'>Недоступно</p>
@@ -52,7 +59,7 @@
                     <p><%= reader%></p>
                     <p>Дата возврата:</p>
                     <p><%= returnDate%></p>
-                    <button id="close_reader_information_button" class=".cancel_button">Закрыть</button>
+                    <button id="close_reader_information_button" class="cancel_button">Закрыть</button>
                 </dialog>
                 <button id = "reader_information_button">Информация о читателе</button>
                 <button id = "return_book_button">Вернуть книгу</button>
@@ -60,7 +67,8 @@
         </div>
         <button id = 'main_page'>Вернуться на главную</button>
     </div>
+    <script src="https://kit.fontawesome.com/05c56843eb.js" crossorigin="anonymous"></script>
     <script src = '../js/request.js'></script>
-    <script src = '../js/books.js'></script>
+    <script src = '../js/book.js'></script>
 </body>
 </html>

@@ -59,13 +59,17 @@ function addRow(dataList){
     delete_button.id = `${"delete_button_" + dataList.id}`
     delete_button.className = 'delete_button'
     let buttonId = "#delete_" + dataList.id
-    delete_button.innerHTML = 'Удалить книгу'
+    let icon = document.createElement("i")
+    icon.className = 'fa-solid fa-trash'
+    delete_button.appendChild(icon)
     document.querySelector(buttonId).appendChild(delete_button)
     let book_page_button = document.createElement("button")
     book_page_button.id = `${"book_page_button_" + dataList.id}`
     book_page_button.className = 'book_page_button'
-    book_page_button.innerHTML = 'Перейти к книге'
     buttonId = "#book_page_" + dataList.id
+    icon = document.createElement("i")
+    icon.className = 'fa-solid fa-book-open'
+    book_page_button.appendChild(icon)
     document.querySelector(buttonId).appendChild(book_page_button)
 }
 

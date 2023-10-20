@@ -1,0 +1,95 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#header {
+    background-color: #007acc;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+#header_container {
+    display: flex;
+    align-items: center;
+}
+
+#title {
+    margin-left: 10px;
+}
+
+#main_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#main_container p {
+    margin: 10px 0;
+}
+
+#book_list_container{
+    overflow: auto;
+    width: 100%;
+}
+
+#book_list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#book_list td {
+    padding: 2%;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    word-wrap: break-word;
+}
+
+.delete_button,
+.book_page_button {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.delete_button:hover,
+.book_page_button:hover {
+    background-color: #005a9c;
+}
+
+#new_book_button {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#new_book_button:hover {
+    background-color: #005a9c;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#main_container p {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+    color: #007acc;
+}
+

@@ -1,0 +1,133 @@
+body{
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f4f4f4;
+    flex-direction: column;
+    align-items: center;
+}
+
+p{
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+#header, #main_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#release_date_container, #availability_container, #author_container  {
+    text-align: center;
+    margin-top: 2%;
+    border: 2px solid #ccc;
+}
+
+#availability {
+    margin: 20px 10px;
+}
+
+#reader_information,
+#reader_information p {
+    text-align: center;
+}
+
+#book_title {
+    font-size: 28px;
+    color: #333;
+}
+
+#main_page{
+    margin: 20px auto;
+}
+
+#reader_information {
+    text-align: center;
+}
+
+#reader_information_button,
+#return_book_button, #main_page, .change_button {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.change_button{
+    margin-left: 5px;
+}
+
+.dialog {
+    display: none;
+    position: fixed;
+    max-width: 30%;
+    max-height: 35%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+.dialog[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.change_input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.cancel_button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#issue_book_button, .confirm_button{
+    background-color: #28a745;
+    color: #fff;
+    margin-top: 2%;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#reader_information_button:hover,
+#return_book_button:hover, #main_page:hover, .change_button:hover{
+    background-color: #005a9c;
+}
+
+#issue_book_button:hover, .confirm_button:hover{
+    background-color: #147930;
+}
+
+.cancel_button:hover{
+    background-color: #ab212f;
+}
+
+.confirm_button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
